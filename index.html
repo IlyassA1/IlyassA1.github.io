@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ilyass AIT ALI — Portfolio</title>
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+  tailwind.config = { theme: { extend: { fontFamily: {
+    display: ['"Space Grotesk"', 'ui-sans-serif', 'system-ui', '-apple-system', '"Segoe UI"', 'Roboto', 'sans-serif'],
+    sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', '"Segoe UI"', 'Roboto', 'sans-serif']
+  } } } };
+</script>
+<style>
+  /* Deux couleurs : dominante (cyan-teal) + accent (ambre). Le reste : neutres. */
+  :root {
+    --bg: #FAFAF7; --card: #FFFFFF; --text: #14181C; --muted: #4A5360; --line: #C9CFD4;
+    --main: #0F4C5C; --on-main: #FFFFFF; --accent: #B45309;
+    --tag-bg: #E6F1F3; --tag-text: #0F4C5C; --grid: rgba(15,76,92,.09);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0A0E11; --card: #12191E; --text: #EAF0F3; --muted: #A1ACB5; --line: #34414A;
+      --main: #5EC4D6; --on-main: #0A0E11; --accent: #FBBF24;
+      --tag-bg: #1B2A31; --tag-text: #9AD8E4; --grid: rgba(94,196,214,.09);
+    }
+  }
+  body { background: var(--bg); color: var(--text); }
+  .muted { color: var(--muted); } .main { color: var(--main); } .accent { color: var(--accent); }
+  .grid-bg {
+    background-image:
+      radial-gradient(60rem 40rem at 90% 0%, color-mix(in srgb, var(--main) 9%, transparent), transparent 70%),
+      linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: auto, 48px 48px, 48px 48px;
+  }
+  .label { letter-spacing: .14em; text-transform: uppercase; font-size: .75rem; font-weight: 600; }
+  .h2 { font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700; letter-spacing: -.02em; font-size: clamp(2.25rem, 6vw, 3.75rem); margin-bottom: 3rem; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: .75rem; padding: 2rem 1.5rem; display: flex; flex-direction: column; }
+  .head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+  .num { font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700; font-size: 1.875rem; color: var(--main); }
+  .ttl { font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700; font-size: 1.5rem; margin-top: 1.25rem; }
+  .hook { color: var(--accent); font-weight: 500; margin-top: .5rem; }
+  .sub { color: var(--muted); font-size: .875rem; margin-top: .5rem; }
+  .card ul.pts { color: var(--muted); margin-top: 1rem; padding-left: 1.25rem; list-style: disc; display: grid; gap: .5rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.25rem; }
+  .tag { background: var(--tag-bg); color: var(--tag-text); border: 1px solid color-mix(in srgb, var(--main) 35%, transparent);
+         border-radius: .375rem; padding: .25rem .625rem; font-size: .875rem; font-weight: 500; }
+  .acts { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: auto; padding-top: 1.5rem; }
+  .btn { display: inline-flex; align-items: center; gap: .4rem; padding: .55rem 1rem; border-radius: .5rem;
+         font-weight: 600; font-size: .9rem; text-decoration: underline; text-underline-offset: 3px; }
+  .btn-outline { border: 1.5px solid var(--main); color: var(--main); }
+  .btn-solid { background: var(--main); color: var(--on-main); border: 1.5px solid var(--main); }
+  a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .card { transition: transform 150ms ease, border-color 150ms ease; }
+    .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+  }
+</style>
+</head>
+<body class="font-sans antialiased">
+
+<!-- Contenu issu du CV d'Ilyass : sans crochets. Tout texte entre crochets est inventé : à remplacer (puis retirer les crochets). -->
+
+<header class="grid-bg min-h-screen flex flex-col px-6 sm:px-12 lg:px-24 py-8">
+  <nav class="flex items-center justify-between label" aria-label="Navigation principale">
+    <span class="main font-display">IAA // 2026</span>
+    <ul class="flex gap-6">
+      <li><a class="underline underline-offset-4" href="#projets">Projets</a></li>
+      <li><a class="underline underline-offset-4" href="#parcours">Parcours</a></li>
+      <li><a class="underline underline-offset-4" href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="flex-1 flex flex-col justify-center py-16">
+    <p class="accent label mb-6">Étudiant ingénieur informatique · IA, Data &amp; Développement</p>
+    <h1 class="font-display font-bold leading-[0.9] tracking-tighter text-6xl sm:text-8xl lg:text-[9.5rem]">
+      Ilyass<br><span class="main">AIT ALI</span>
+    </h1>
+    <p class="muted mt-8 max-w-2xl text-xl sm:text-2xl">
+      Passionné d'IA, de data et de développement, avec une première expérience en data center critique.
+    </p>
+    <div class="mt-10 flex flex-wrap gap-3">
+      <a href="#projets" class="btn btn-solid">Explorer les projets ↓</a>
+      <a href="https://github.com/IlyassA1" class="btn btn-outline">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/ilyass-ait-ali/" class="btn btn-outline">LinkedIn ↗</a>
+    </div>
+  </div>
+
+  <dl class="grid grid-cols-1 sm:grid-cols-3 gap-px" style="background: var(--line); border: 1px solid var(--line)">
+    <div class="p-4" style="background: var(--bg)"><dt class="label muted">Recherche</dt><dd class="font-display font-bold text-xl mt-1">Stage de 3 mois</dd><dd class="muted text-sm">Fin prévue début juillet 2027</dd></div>
+    <div class="p-4" style="background: var(--bg)"><dt class="label muted">Disponible dès le</dt><dd class="font-display font-bold text-xl mt-1 accent">5 avril 2027</dd><dd class="muted text-sm">Toulouse et alentours</dd></div>
+    <div class="p-4" style="background: var(--bg)"><dt class="label muted">Domaines</dt><dd class="font-display font-bold text-xl mt-1">IA · Data · Développement · Automatisation</dd></div>
+  </dl>
+</header>
+
+<main class="px-6 sm:px-12 lg:px-24 pb-24">
+
+  <section id="projets" class="py-20" aria-labelledby="t-projets">
+    <p class="accent label mb-3">01 / Sélection</p>
+    <h2 id="t-projets" class="h2">Projets</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <article class="card">
+        <div class="head"><span class="num">01</span><span class="muted label">Stage · Déc. 2025 · 1 mois</span></div>
+        <h3 class="ttl">Optimisation d'un dashboard de supervision</h3>
+        <p class="hook">[Rendre chaque alerte lisible avant qu'elle ne devienne un incident.]</p>
+        <p class="sub">Data Center Haliopolis, pour le compte de l'opérateur Inwi — Agadir, Maroc</p>
+        <ul class="pts">
+          <li>Dashboard de supervision temps réel : caméras, détecteurs, température et consommation électrique.</li>
+          <li>Suivi et priorisation des alertes et warnings pour anticiper les incidents et fiabiliser le monitoring.</li>
+          <li>[Réflexion sur une hiérarchie d'alertes claire : information, avertissement, critique.]</li>
+          <li>Amélioration de l'ergonomie et de la lisibilité des indicateurs affichés aux équipes techniques.</li>
+        </ul>
+        <ul class="tags" aria-label="Technologies">
+          <li class="tag">Supervision temps réel</li><li class="tag">Monitoring</li><li class="tag">[Outil du dashboard]</li>
+        </ul>
+        <div class="acts">
+          <a class="btn btn-outline" href="https://github.com/IlyassA1">Repository ↗</a>
+          <a class="btn btn-solid" href="https://exemple.com/demo-stage">Démo en ligne ↗</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="head"><span class="num">02</span><span class="muted label">Projet SQL · 1ère année · CESI Dijon</span></div>
+        <h3 class="ttl">Modélisation et bases de données SQL</h3>
+        <p class="hook">[Faire parler l'air que l'on respire grâce à une base solide.]</p>
+        <p class="sub">Base relationnelle pour le suivi de la qualité de l'air en France (cas d'étude fictif pour un ministère)</p>
+        <ul class="pts">
+          <li>Modélisation conceptuelle, logique et physique (MCD/MLD/MPD) en 3ème forme normale.</li>
+          <li>Création et peuplement d'une base MySQL : agences, capteurs, mesures, rapports.</li>
+          <li>Requêtes SQL avancées : jointures, agrégations, sous-requêtes, arbres algébriques.</li>
+          <li>Gestion des droits d'accès (administrateur / utilisateur) et optimisation des performances.</li>
+        </ul>
+        <ul class="tags" aria-label="Technologies">
+          <li class="tag">MySQL</li><li class="tag">SQL</li><li class="tag">MCD / MLD / MPD</li>
+        </ul>
+        <div class="acts">
+          <a class="btn btn-outline" href="https://github.com/IlyassA1">Repository ↗</a>
+          <a class="btn btn-solid" href="https://exemple.com/demo-sql">Démo en ligne ↗</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="head"><span class="num">03</span><span class="muted label">Projet de groupe · Sept. – oct. 2026</span></div>
+        <h3 class="ttl">Worldwide Weather Watcher</h3>
+        <p class="hook">[Une station météo qui veille sur les navires, du capteur à la carte SD.]</p>
+        <p class="sub">Systèmes embarqués : prototype de station météo embarquée pour navires, sur carte STM32 Nucleo</p>
+        <ul class="pts">
+          <li>C++ sur microcontrôleurs, gestion des capteurs et des entrées/sorties.</li>
+          <li>Modélisation du comportement par automates et diagrammes SysML.</li>
+          <li>[Une machine à états qui pilote les modes de fonctionnement et signale l'état du système par une LED RGB.]</li>
+        </ul>
+        <p class="mt-4 text-sm"><span class="accent font-semibold">Ma part</span> <span class="muted">[à compléter : les modules, capteurs ou diagrammes dont j'étais responsable]</span></p>
+        <ul class="tags" aria-label="Technologies">
+          <li class="tag">C++</li><li class="tag">STM32 Nucleo</li><li class="tag">SysML</li><li class="tag">Automates</li>
+        </ul>
+        <div class="acts">
+          <a class="btn btn-outline" href="https://github.com/IlyassA1">Repository ↗</a>
+          <a class="btn btn-solid" href="https://exemple.com/demo-embarque">Démo en ligne ↗</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="head"><span class="num">04</span><span class="muted label">[Projet personnel · Data &amp; IA]</span></div>
+        <h3 class="ttl">[Sillage — copilote d'alertes météo marines]</h3>
+        <p class="hook">[Apprendre à une IA ce qu'est une mer « normale », puis lui faire expliquer ce qui ne l'est pas.]</p>
+        <p class="sub">[Pipeline de données qui repère les relevés atypiques et les explique en langage clair.]</p>
+        <ul class="pts">
+          <li>[Collecte des relevés (pression, température, hygrométrie, GPS) dans une base MySQL.]</li>
+          <li>[Analyse des séries temporelles et détection d'anomalies avec Python.]</li>
+          <li>[Scénario Make.com qui envoie chaque anomalie à un modèle de langage, guidé par un prompt, pour obtenir un résumé lisible.]</li>
+        </ul>
+        <ul class="tags" aria-label="Technologies">
+          <li class="tag">[Python]</li><li class="tag">[scikit-learn]</li><li class="tag">[MySQL]</li><li class="tag">[Make.com]</li>
+        </ul>
+        <div class="acts">
+          <a class="btn btn-outline" href="https://github.com/IlyassA1">Repository ↗</a>
+          <a class="btn btn-solid" href="https://exemple.com/demo-sillage">Démo en ligne ↗</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="parcours" class="py-20" aria-labelledby="t-parcours">
+    <p class="accent label mb-3">02 / Parcours &amp; stack</p>
+    <h2 id="t-parcours" class="h2">Compétences</h2>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-2 grid gap-8">
+        <div class="pl-4" style="border-left: 3px solid var(--main)">
+          <h3 class="font-display font-bold text-xl">Langages &amp; web</h3>
+          <ul class="tags"><li class="tag">Python</li><li class="tag">C++</li><li class="tag">SQL</li><li class="tag">HTML/CSS</li><li class="tag">JavaScript</li><li class="tag">PHP</li></ul>
+        </div>
+        <div class="pl-4" style="border-left: 3px solid var(--main)">
+          <h3 class="font-display font-bold text-xl">Data, IA &amp; automatisation</h3>
+          <ul class="tags"><li class="tag">IA &amp; Prompt Engineering</li><li class="tag">MySQL (MCD / 3NF)</li><li class="tag">Make.com</li></ul>
+        </div>
+        <div class="pl-4" style="border-left: 3px solid var(--main)">
+          <h3 class="font-display font-bold text-xl">Systèmes &amp; outils</h3>
+          <ul class="tags"><li class="tag">Linux (Debian)</li><li class="tag">Windows Server</li><li class="tag">Cisco Packet Tracer</li><li class="tag">Git</li><li class="tag">VS Code</li></ul>
+        </div>
+      </div>
+      <div class="grid gap-8 content-start">
+        <div class="pl-4" style="border-left: 3px solid var(--accent)">
+          <h3 class="font-display font-bold text-xl">Formation</h3>
+          <p class="mt-2">Cycle Préparatoire Ingénieur, mineure Informatique</p>
+          <p class="muted text-sm">CESI Toulouse · 2ème année · 2026/2027</p>
+          <p class="mt-2">Baccalauréat Scientifique</p>
+          <p class="muted text-sm">Mention Très Bien · 2025</p>
+        </div>
+        <div class="pl-4" style="border-left: 3px solid var(--accent)">
+          <h3 class="font-display font-bold text-xl">Langues</h3>
+          <p class="muted mt-2">Arabe : langue maternelle<br>Français : courant · TCF C1<br>Anglais : courant · B2 British Council</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-20" aria-labelledby="t-contact">
+    <p class="accent label mb-3">03 / Contact</p>
+    <h2 id="t-contact" class="font-display font-bold text-4xl sm:text-6xl tracking-tight">Construisons quelque chose.</h2>
+    <p class="muted mt-6 max-w-xl text-lg">À la recherche d'un stage de 3 mois à partir du 5 avril 2027, à Toulouse et alentours.</p>
+    <a class="main font-display font-bold text-2xl sm:text-4xl underline underline-offset-8 break-all block mt-8" href="mailto:ilyass.aitali10@gmail.com">ilyass.aitali10@gmail.com</a>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <a class="btn btn-outline" href="https://github.com/IlyassA1">GitHub ↗</a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/ilyass-ait-ali/">LinkedIn ↗</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="px-6 sm:px-12 lg:px-24 py-8 border-t" style="border-color: var(--line)">
+  <p class="muted text-sm">© 2026 Ilyass AIT ALI</p>
+</footer>
+
+</body>
+</html>
